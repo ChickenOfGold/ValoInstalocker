@@ -17,3 +17,6 @@ Hold "w" while loading to a game to instalock Omen
 Hold "e" while loading to a game to instalock Brimstone
 
 Hold "s" while loading to a game to instalock Sage
+
+
+Right now the program can't be stoped so after you lock an agent use 'ctrl + alt + delete' open up task manager and close the script from there
