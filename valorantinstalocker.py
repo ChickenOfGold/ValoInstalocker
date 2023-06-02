@@ -4,7 +4,6 @@ import pyfiglet
 from rich import print
 import time
 
-
 time.sleep(0.5)
 title = pyfiglet.figlet_format('Instalock', font='larry3d')
 print(f'[yellow]{title}[/yellow]')
@@ -19,47 +18,90 @@ time.sleep(0.5)
 print('      by ChickenOfGold')
 
 print('      Instructions:')
-print('      Hold "q" while loading to a game to instalock neon')
+print('      Hold "q" while loading to a game to instalock Neon')
+print('      Hold "w" while loading to a game to instalock Omen')
+print('      Hold "e" while loading to a game to instalock Brimstone')
+print('      Hold "s" while loading to a game to instalock Sage')
 print('      Click "esc" to exit the program')
 
-# Start position
-start_x = 936
-start_y = 808
 
-# End position
-end_x = 771
-end_y = 924
+# Lock button
+lock_x = 936
+lock_y = 808
 
-# Delay between each movement (in seconds)
 movement_delay = 0.1
-
-# Click delay (in seconds)
 click_delay = 0.2
 
 
 # Function to move the mouse cursor
-def move_mouse():
+def move_neon():
     # Move the mouse cursor to lock
-    pyautogui.moveTo(start_x, start_y)
+    pyautogui.moveTo(lock_x, lock_y)
+    pyautogui.click()  # Lock
 
-    pyautogui.click() #lock
+    # Move the mouse cursor to Neon
+    pyautogui.moveTo(771, 924)
+    pyautogui.click()  # Pick agent
 
 
-    pyautogui.moveTo(end_x, end_y)
-    
-    pyautogui.click() #pick agent
-
-# Function to handle key press events
-def on_press(event):
+# Function to handle key press events for Neon
+def neon(event):
     if event.name == 'q':
         while keyboard.is_pressed('q'):
-            move_mouse()
+            move_neon()
 
-# Register the key press event handler
-keyboard.on_press(on_press)
 
-while 1:
-    on_press
+def move_omen():
+    # Move the mouse cursor to lock
+    pyautogui.moveTo(lock_x, lock_y)
+    pyautogui.click()  # Lock
 
+    # Move the mouse cursor to Omen
+    pyautogui.moveTo(883, 916)
+    pyautogui.click()  # Pick agent
+
+
+# Function to handle key press events for W
+def omen(event):
+    if event.name == 'w':
+        move_omen()
+
+
+def move_brim():
+    # Move the mouse cursor to lock
+    pyautogui.moveTo(lock_x, lock_y)
+    pyautogui.click()  # Lock
+
+    # Move the mouse cursor to Brimstone
+    pyautogui.moveTo(521, 930)
+    pyautogui.click()  # Pick agent
+
+
+def brim(event):
+    if event.name == 'e':
+        move_omen()
+
+
+def move_sage():
+    # Move the mouse cursor to lock
+    pyautogui.moveTo(lock_x, lock_y)
+    pyautogui.click()  # Lock
+
+    # Move the mouse cursor to Sage
+    pyautogui.moveTo(1044, 924)
+    pyautogui.click()  # Pick agent
+
+def sage(event):
+    if event.name == 's':
+        move_omen()
+
+# Register the key press event handlers
+keyboard.on_press(neon)
+keyboard.on_press(omen)
+keyboard.on_press(brim)
+keyboard.on_press(sage)
+
+while True:
+    pass
 
 keyboard.wait('esc')
