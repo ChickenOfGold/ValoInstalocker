@@ -11,6 +11,9 @@ I am not responsible for the potential ban of your Valorant account if you use t
 
 # Usage
 Hold "q" while loading to a game to instalock Neon
+
 Hold "w" while loading to a game to instalock Omen
+
 Hold "e" while loading to a game to instalock Brimstone
+
 Hold "s" while loading to a game to instalock Sage
